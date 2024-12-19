@@ -32,28 +32,58 @@
 
 // Find if box are colliding 
 // Math Concept used to find if box are colliding : AABB(Axis Alligned Bounding Box)
+// const isColliding = (box1, box2) => {
 
-const isColliding = (box1, box2) => {
+//     const box1Dimension = { left: box1.x1, right: box1.x1 + box1.w1, top: box1.y1, bottom: box1.y1 + box1.h1 };
+//     const box2Dimension = { left: box2.x2, right: box2.x2 + box2.w2, top: box2.y2, bottom: box2.y2 + box2.h2 };
+//     console.log('Box 1 Dimension: ', box1Dimension);
+//     console.log('Box 2 Dimension: ', box2Dimension);
 
-    const box1Dimension = { left: box1.x1, right: box1.x1 + box1.w1, top: box1.y1, bottom: box1.y1 + box1.h1 };
-    const box2Dimension = { left: box2.x2, right: box2.x2 + box2.w2, top: box2.y2, bottom: box2.y2 + box2.h2 };
-    console.log('Box 1 Dimension: ', box1Dimension);
-    console.log('Box 2 Dimension: ', box2Dimension);
+//     return (
+//         // if box1 bottom is > than box2 top
+//         box1Dimension.bottom > box2Dimension.top &&
+//         box2Dimension.top < box1Dimension.bottom &&
+//         box1Dimension.right > box2Dimension.left &&
+//         box2Dimension.left < box1Dimension.right
+//     );
+// }
 
-    return (
-        // if box1 bottom is > than box2 top
-        box1Dimension.bottom > box2Dimension.top &&
-        box2Dimension.top < box1Dimension.bottom &&
-        box1Dimension.right > box2Dimension.left &&
-        box2Dimension.left < box1Dimension.right
-    );
+// const box1 = { x1: 30, y1: 10, w1: 100, h1: 80 }
+// const box2 = { x2: 20, y2: 5, w2: 80, h2: 60 }
+
+// if (isColliding(box1, box2)) {
+//     console.log("Box are colliding");
+// } else {
+//     console.log("Box are not colliding");
+// }
+
+
+// Math concept 2 for box collision game
+// Vector and their application
+
+// What are vectors
+// A vector is a quantity that has both magnitude and directions
+// Magnitude: (length and size)
+// Direction: Where this point
+// In 2D space a vector can be represented as v  = (x,y)
+// X is horizontal movement along in x axis
+// Y is vertical movement along in y axis
+
+
+// Oparations in vector 
+// 1. Vector addition  // 2.Subtraction
+// Magnitute of vector 
+// The magnitue (length) is the distance from (x,y)
+// || v || is the length of vector
+
+const findVectorMagnitude = (vector) => {
+    const xRoot = vector.x * vector.x
+    const yRoot = vector.y * vector.y
+    const magnitude = xRoot + yRoot;
+    return Math.sqrt(magnitude);
 }
 
-const box1 = { x1: 30, y1: 10, w1: 100, h1: 80 }
-const box2 = { x2: 20, y2: 5, w2: 80, h2: 60 }
+const vector = { x: 3, y: 4 }
 
-if (isColliding(box1, box2)) {
-    console.log("Box are colliding");
-} else {
-    console.log("Box are not colliding");
-}
+const magnitudeOfVector = findVectorMagnitude(vector)
+console.log('Vector Magnitude: ', magnitudeOfVector);
