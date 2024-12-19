@@ -161,14 +161,35 @@
 // A vector can represent the velocity of a moving object
 // Position = Position + velocity
 
-const getNewPositionOfVector = (vPosition, velocity) => {
-    const x = vPosition.x + velocity.x2
-    const y = vPosition.y + velocity.y2
-    const newPosition = { x, y };
-    return newPosition;
+// const getNewPositionOfVector = (vPosition, velocity) => {
+//     const x = vPosition.x + velocity.x2
+//     const y = vPosition.y + velocity.y2
+//     const newPosition = { x, y };
+//     return newPosition;
+// }
+
+// const vPosition = { x: 50, y: 50 };
+// const velocity = { x2: 2, y2: 4 };
+
+// console.log("Position of new vector: ", getNewPositionOfVector(vPosition, velocity));
+
+// Find the direction of vector between two points
+// The direction of vector is typically represented as a unit vector, which is obtained by normalizing the difference vector.
+
+const findTheDirectionOfVector = (vector, vector2) => {
+    const x = vector2.x2 - vector.x;
+    const y = vector2.y2 - vector.y;
+    const mag = Math.sqrt(x * x + y * y);
+    if (mag === 0) {
+        return { x: 0, y: 0 };
+    };
+    const normalX = x / mag;
+    const normalY = y / mag;
+
+    return { x: normalX, y: normalY };
 }
 
-const vPosition = { x: 50, y: 50 };
-const velocity = { x2: 2, y2: 4 };
+const vector = { x: 50, y: 58 };
+const vector2 = { x2: 4, y2: 2 };
 
-console.log("Position of new vector: ", getNewPositionOfVector(vPosition, velocity));
+console.log("Direction of vector: ", findTheDirectionOfVector(vector, vector2));
