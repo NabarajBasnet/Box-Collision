@@ -89,13 +89,25 @@
 
 // Operation if vector
 // Addition
-const vector1 = { x1: 10, y1: 5 }
-const vector2 = { x2: 10, y2: 5 }
-// (x1+x2,y1+y2)
-const addVector = (vector1, vector2) => {
-    const x = vector1.x1 + vector2.x2;
-    const y = vector1.y1 + vector2.y2;
-    return x + y;
+// const vector1 = { x1: 10, y1: 5 }
+// const vector2 = { x2: 10, y2: 5 }
+// // (x1+x2,y1+y2)
+// const addVector = (vector1, vector2) => {
+//     const x = vector1.x1 + vector2.x2;
+//     const y = vector1.y1 + vector2.y2;
+//     return x + y;
+// };
+
+// console.log(addVector(vector1, vector2));
+
+// Subtraction of vectors
+const subtractVectors = (vector1, vector2) => {
+    const x = vector1.x1 - vector2.x2;
+    const y = vector1.y1 - vector2.y2;
+    return x - y;
 };
 
-console.log(addVector(vector1, vector2));
+const vector1 = { x1: 30, y1: 40 };
+const vector2 = { x2: 10, y2: 15 };
+
+console.log('Subtraction of vectors: ', subtractVectors(vector1, vector2));
