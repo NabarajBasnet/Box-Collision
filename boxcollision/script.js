@@ -209,10 +209,19 @@
 
 
 // Draw circle in canvas 
-const circle = document.getElementById('circle');
-const ctx = circle.getContext('2d');
-ctx.beginPath();
-ctx.arc(100, 70, 30, 0, 2 * Math.PI);
-ctx.stroke();
+// const circle = document.getElementById('circle');
+// const ctx = circle.getContext('2d');
+// ctx.beginPath();
+// ctx.arc(100, 70, 30, 0, 2 * Math.PI);
+// ctx.stroke();
 
-console.log(ctx);
+// console.log(ctx);
+
+
+// Write text in canvas
+const c = document.getElementById('text');
+const ctx = c.getContext('2d');
+ctx.font = "30px Arial";
+ctx.fillText('Hello world!', 10, 50);
+ctx.textAlign = 'center'
+console.log(ctx)
