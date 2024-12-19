@@ -126,16 +126,32 @@
 
 // Normalazitaion of vector
 // To normalize a vector divide it by its magnitude, A unit vector has a length of 1 but retains its direction
-const normalizeVector = (vector) => {
-    // First find magnitude of vector
-    const x = vector.x * vector.x;
-    const y = vector.y * vector.y;
-    const magnitude = Math.sqrt(x + y);
-    const normalX = vector.x / magnitude;
-    const normalY = vector.y / magnitude;
-    return `${normalX}, ${normalY}`;
+// const normalizeVector = (vector) => {
+//     // First find magnitude of vector
+//     const x = vector.x * vector.x;
+//     const y = vector.y * vector.y;
+//     const magnitude = Math.sqrt(x + y);
+//     const normalX = vector.x / magnitude;
+//     const normalY = vector.y / magnitude;
+//     return `${normalX}, ${normalY}`;
+// }
+
+// const vector = { x: 3, y: 4 };
+
+// console.log("Normal Vector: ", normalizeVector(vector));
+
+
+// Scaling a vector
+// To scale a vector multiply it by a scalor (a single number);
+
+const scaleVector = (vector, scalor) => {
+    const x = vector.x * scalor;
+    const y = vector.y * scalor;
+    const scalledVector = { x: x, y: y };
+    return scalledVector;
 }
 
-const vector = { x: 3, y: 4 };
+const vector = { x: 2, y: 3 };
+const scalor = 2;
 
-console.log("Normal Vector: ", normalizeVector(vector));
+console.log("Scalled vector: ", scaleVector(vector, scalor));
