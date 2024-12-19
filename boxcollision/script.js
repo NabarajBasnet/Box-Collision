@@ -114,12 +114,28 @@
 
 // Magnitude (length) of vectors
 
-const magnitudeOfVector = (vector) => {
+// const magnitudeOfVector = (vector) => {
+//     const x = vector.x * vector.x;
+//     const y = vector.y * vector.y;
+//     const root = Math.sqrt(x + y);
+//     return root;
+// }
+// const vector = { x: 3, y: 4 };
+
+// console.log("Magnitude of vector: ", magnitudeOfVector(vector));
+
+// Normalazitaion of vector
+// To normalize a vector divide it by its magnitude, A unit vector has a length of 1 but retains its direction
+const normalizeVector = (vector) => {
+    // First find magnitude of vector
     const x = vector.x * vector.x;
     const y = vector.y * vector.y;
-    const root = Math.sqrt(x + y);
-    return root;
+    const magnitude = Math.sqrt(x + y);
+    const normalX = vector.x / magnitude;
+    const normalY = vector.y / magnitude;
+    return `${normalX}, ${normalY}`;
 }
+
 const vector = { x: 3, y: 4 };
 
-console.log("Magnitude of vector: ", magnitudeOfVector(vector));
+console.log("Normal Vector: ", normalizeVector(vector));
