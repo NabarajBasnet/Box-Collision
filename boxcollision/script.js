@@ -144,14 +144,31 @@
 // Scaling a vector
 // To scale a vector multiply it by a scalor (a single number);
 
-const scaleVector = (vector, scalor) => {
-    const x = vector.x * scalor;
-    const y = vector.y * scalor;
-    const scalledVector = { x: x, y: y };
-    return scalledVector;
+// const scaleVector = (vector, scalor) => {
+//     const x = vector.x * scalor;
+//     const y = vector.y * scalor;
+//     const scalledVector = { x: x, y: y };
+//     return scalledVector;
+// }
+
+// const vector = { x: 2, y: 3 };
+// const scalor = 2;
+
+// console.log("Scalled vector: ", scaleVector(vector, scalor));
+
+// Application of vecotrs
+// 1. Movement in 2D vector
+// A vector can represent the velocity of a moving object
+// Position = Position + velocity
+
+const getNewPositionOfVector = (vPosition, velocity) => {
+    const x = vPosition.x + velocity.x2
+    const y = vPosition.y + velocity.y2
+    const newPosition = { x, y };
+    return newPosition;
 }
 
-const vector = { x: 2, y: 3 };
-const scalor = 2;
+const vPosition = { x: 50, y: 50 };
+const velocity = { x2: 2, y2: 4 };
 
-console.log("Scalled vector: ", scaleVector(vector, scalor));
+console.log("Position of new vector: ", getNewPositionOfVector(vPosition, velocity));
