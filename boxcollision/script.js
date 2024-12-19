@@ -76,14 +76,13 @@
 // The magnitue (length) is the distance from (x,y)
 // || v || is the length of vector
 
-const findVectorMagnitude = (vector) => {
-    const xRoot = vector.x * vector.x
-    const yRoot = vector.y * vector.y
-    const magnitude = xRoot + yRoot;
-    return Math.sqrt(magnitude);
+const magnitudeOfVector = (vector) => {
+    const xRoot = vector.x * vector.x;
+    const yRoot = vector.y * vector.y;
+    const magnitude = Math.sqrt(xRoot + yRoot);
+    return magnitude;
 }
 
-const vector = { x: 3, y: 4 }
-
-const magnitudeOfVector = findVectorMagnitude(vector)
-console.log('Vector Magnitude: ', magnitudeOfVector);
+const vector = { x: 4, y: 3 };
+const vectorMagnitude = magnitudeOfVector(vector);
+console.log("Vector mag: ", vectorMagnitude);
