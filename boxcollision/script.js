@@ -201,8 +201,18 @@
 
 
 // Draw line in canvas
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.moveTo(0, 0);
-ctx.lineTo(200, 100);
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d");
+// ctx.moveTo(0, 0);
+// ctx.lineTo(200, 100);
+// ctx.stroke();
+
+
+// Draw circle in canvas 
+const circle = document.getElementById('circle');
+const ctx = circle.getContext('2d');
+ctx.beginPath();
+ctx.arc(100, 70, 30, 0, 2 * Math.PI);
 ctx.stroke();
+
+console.log(ctx);
