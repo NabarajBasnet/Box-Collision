@@ -176,20 +176,33 @@
 // Find the direction of vector between two points
 // The direction of vector is typically represented as a unit vector, which is obtained by normalizing the difference vector.
 
-const findTheDirectionOfVector = (vector, vector2) => {
-    const x = vector2.x2 - vector.x;
-    const y = vector2.y2 - vector.y;
-    const mag = Math.sqrt(x * x + y * y);
-    if (mag === 0) {
-        return { x: 0, y: 0 };
-    };
-    const normalX = x / mag;
-    const normalY = y / mag;
+// const findTheDirectionOfVector = (vector, vector2) => {
+//     const x = vector2.x2 - vector.x;
+//     const y = vector2.y2 - vector.y;
+//     const mag = Math.sqrt(x * x + y * y);
+//     if (mag === 0) {
+//         return { x: 0, y: 0 };
+//     };
+//     const normalX = x / mag;
+//     const normalY = y / mag;
 
-    return { x: normalX, y: normalY };
-}
+//     return { x: normalX, y: normalY };
+// }
 
-const vector = { x: 50, y: 58 };
-const vector2 = { x2: 4, y2: 2 };
+// const vector = { x: 50, y: 58 };
+// const vector2 = { x2: 4, y2: 2 };
 
-console.log("Direction of vector: ", findTheDirectionOfVector(vector, vector2));
+// console.log("Direction of vector: ", findTheDirectionOfVector(vector, vector2));
+
+
+// Collision response
+// Vectors can determine the direction and magnitude of an object's reactions after a collision
+
+
+
+// Draw line in canvas
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
