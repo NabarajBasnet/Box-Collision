@@ -30,7 +30,7 @@
 // }
 
 
-// Find if box are colliding 
+// Find if box are colliding
 // Math Concept used to find if box are colliding : AABB(Axis Alligned Bounding Box)
 // const isColliding = (box1, box2) => {
 
@@ -70,9 +70,9 @@
 // Y is vertical movement along in y axis
 
 
-// Oparations in vector 
+// Oparations in vector
 // 1. Vector addition  // 2.Subtraction
-// Magnitute of vector 
+// Magnitute of vector
 // The magnitue (length) is the distance from (x,y)
 // || v || is the length of vector
 
@@ -101,13 +101,25 @@
 // console.log(addVector(vector1, vector2));
 
 // Subtraction of vectors
-const subtractVectors = (vector1, vector2) => {
-    const x = vector1.x1 - vector2.x2;
-    const y = vector1.y1 - vector2.y2;
-    return x - y;
-};
+// const subtractVectors = (vector1, vector2) => {
+//     const x = vector1.x1 - vector2.x2;
+//     const y = vector1.y1 - vector2.y2;
+//     return x - y;
+// };
 
-const vector1 = { x1: 30, y1: 40 };
-const vector2 = { x2: 10, y2: 15 };
+// const vector1 = { x1: 30, y1: 40 };
+// const vector2 = { x2: 10, y2: 15 };
 
-console.log('Subtraction of vectors: ', subtractVectors(vector1, vector2));
+// console.log('Subtraction of vectors: ', subtractVectors(vector1, vector2));
+
+// Magnitude (length) of vectors
+
+const magnitudeOfVector = (vector) => {
+    const x = vector.x * vector.x;
+    const y = vector.y * vector.y;
+    const root = Math.sqrt(x + y);
+    return root;
+}
+const vector = { x: 3, y: 4 };
+
+console.log("Magnitude of vector: ", magnitudeOfVector(vector));
