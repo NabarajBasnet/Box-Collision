@@ -65,26 +65,36 @@ const boxThree = () => {
 };
 
 const isBoxColliding = (boxOne, boxTwo, boxThree) => {
-    const boxOneDimension = boxOne();
-    const boxTwoDimension = boxTwo();
-    const boxThreeDimension = boxThree();
+    const rectOne = boxOne();
+    const rectTwo = boxTwo();
+    const rectThree = boxThree();
 
-    const boxOneLeft = boxOneDimension.x
-    const boxOneRight = boxOneDimension.x + boxOneDimension.w
-    const boxOneTop = boxOneDimension.y
-    const boxOneBottom = boxOneDimension.y + boxOneDimension.h
+    const boxOneLeft = rectOne.x
+    const boxOneRight = rectOne.x + rectOne.w
+    const boxOneTop = rectOne.y
+    const boxOneBottom = rectOne.y + rectOne.h
+    const boxOneDimension = { left: boxOneLeft, right: boxOneRight, top: boxOneTop, bottom: boxOneBottom }
 
-    const boxTwoLeft = boxTwoDimension.x
-    const boxTwoRight = boxTwoDimension.x + boxTwoDimension.w
-    const boxTwoTop = boxTwoDimension.y
-    const boxTwoBottom = boxTwoDimension.y + boxTwoDimension.h
+    const boxTwoLeft = rectTwo.x
+    const boxTwoRight = rectTwo.x + rectTwo.w
+    const boxTwoTop = rectTwo.y
+    const boxTwoBottom = rectTwo.y + rectTwo.h
+    const boxTwoDimension = { left: boxTwoLeft, right: boxTwoRight, top: boxTwoTop, bottom: boxTwoBottom }
 
-    const boxThreeLeft = boxThreeDimension.x
-    const boxThreeLeftRight = boxThreeDimension.x + boxThreeDimension.w
-    const boxThreeLeftTop = boxThreeDimension.y
-    const boxThreeLeftBottom = boxThreeDimension.y + boxThreeDimension.h
+    const boxThreeLeft = rectThree.x
+    const boxThreeRight = rectThree.x + rectThree.w
+    const boxThreeTop = rectThree.y
+    const boxThreeBottom = rectThree.y + rectThree.h
+    const boxThreeDimension = { left: boxThreeLeft, right: boxThreeRight, top: boxThreeTop, bottom: boxThreeBottom }
 
-
+    // Check collision 
+    // console.log(boxOneDimension);
+    // console.log(boxTwoDimension);
+    // console.log(boxThreeDimension);
 }
 
-isBoxColliding(boxOne, boxTwo, boxThree)
+function moveBoxes() {
+    const interverId = setInterval(() => isBoxColliding(boxOne, boxTwo, boxThree), 0);
+    console.log(interverId);
+}
+// moveBoxes();
