@@ -12,9 +12,12 @@ const boxOne = () => {
     const y = Math.random(5) * 470;
     const fixedXvalue = Math.ceil(x);
     const fixedYvalue = Math.ceil(y);
-
-    ctx.rect(fixedXvalue, fixedYvalue, 30, 30);
+    const width = 30;
+    const height = 30;
+    ctx.rect(fixedXvalue, fixedYvalue, width, height);
     ctx.fill();
+    const boxOneDimension = { x: fixedXvalue, y: fixedYvalue, w: width, h: height }
+    return boxOneDimension;
 };
 
 const boxTwo = () => {
@@ -30,9 +33,13 @@ const boxTwo = () => {
     const y = Math.random(5) * 470;
     const fixedX = Math.ceil(x);
     const fixedY = Math.ceil(y);
+    const width = 30;
+    const height = 30;
 
-    ctx2.rect(fixedX, fixedY, 30, 30);
+    ctx2.rect(fixedX, fixedY, width, height);
     ctx2.fill();
+    const boxTwoDimension = { x: fixedX, y: fixedY, w: width, h: height }
+    return boxTwoDimension;
 };
 
 const boxThree = () => {
@@ -48,11 +55,36 @@ const boxThree = () => {
     const y = Math.random(5) * 480;
     const fixedX = Math.ceil(x);
     const fixedY = Math.ceil(y);
+    const width = 20;
+    const height = 20;
 
-    ctx3.rect(fixedX, fixedY, 20, 20);
+    ctx3.rect(fixedX, fixedY, width, height);
     ctx3.fill();
+    const boxThreeDimension = { x: fixedX, y: fixedY, w: width, h: height }
+    return boxThreeDimension;
 };
 
-boxOne();
-boxTwo();
-boxThree();
+const isBoxColliding = (boxOne, boxTwo, boxThree) => {
+    const boxOneDimension = boxOne();
+    const boxTwoDimension = boxTwo();
+    const boxThreeDimension = boxThree();
+
+    const boxOneLeft = boxOneDimension.x
+    const boxOneRight = boxOneDimension.x + boxOneDimension.w
+    const boxOneTop = boxOneDimension.y
+    const boxOneBottom = boxOneDimension.y + boxOneDimension.h
+
+    const boxTwoLeft = boxTwoDimension.x
+    const boxTwoRight = boxTwoDimension.x + boxTwoDimension.w
+    const boxTwoTop = boxTwoDimension.y
+    const boxTwoBottom = boxTwoDimension.y + boxTwoDimension.h
+
+    const boxThreeLeft = boxThreeDimension.x
+    const boxThreeLeftRight = boxThreeDimension.x + boxThreeDimension.w
+    const boxThreeLeftTop = boxThreeDimension.y
+    const boxThreeLeftBottom = boxThreeDimension.y + boxThreeDimension.h
+
+
+}
+
+isBoxColliding(boxOne, boxTwo, boxThree)
