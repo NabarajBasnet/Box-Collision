@@ -16,6 +16,8 @@ const boxOne = () => {
     const height = 30;
     ctx.rect(fixedXvalue, fixedYvalue, width, height);
     ctx.fill();
+    ctx.clearRect(470, 470, 500, 500);
+
     const boxOneDimension = { x: fixedXvalue, y: fixedYvalue, w: width, h: height }
     return boxOneDimension;
 };
@@ -35,6 +37,7 @@ const boxTwo = () => {
     const fixedY = Math.ceil(y);
     const width = 30;
     const height = 30;
+    ctx2.clearRect(470, 470, 500, 500);
 
     ctx2.rect(fixedX, fixedY, width, height);
     ctx2.fill();
@@ -49,7 +52,6 @@ const boxThree = () => {
     const randomIndex = Math.random(arrOfColors.length) * arrOfColors.length
     const fixedRandomIndex = Math.ceil(randomIndex);
     ctx3.fillStyle = arrOfColors.reverse()[fixedRandomIndex];
-
     ctx3.beginPath();
     const x = Math.random(5) * 480;
     const y = Math.random(5) * 480;
@@ -57,6 +59,7 @@ const boxThree = () => {
     const fixedY = Math.ceil(y);
     const width = 20;
     const height = 20;
+    ctx3.clearRect(480, 480, 500, 500);
 
     ctx3.rect(fixedX, fixedY, width, height);
     ctx3.fill();
@@ -94,7 +97,7 @@ const isBoxColliding = (boxOne, boxTwo, boxThree) => {
 }
 
 function moveBoxes() {
-    const interverId = setInterval(() => isBoxColliding(boxOne, boxTwo, boxThree), 0);
+    const interverId = setInterval(() => isBoxColliding(boxOne, boxTwo, boxThree), 100);
     console.log(interverId);
 }
 // moveBoxes();
