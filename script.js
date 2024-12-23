@@ -15,22 +15,13 @@ const moveBox = (timestamp) => {
 
     ctx.fillStyle = 'red';
     ctx.beginPath();
-    ctx.rect(0, shift, 30, 30)
+    ctx.rect(470 / 2, shift, 30, 30)
     ctx.fill();
 
     if (shift < 470) {
         requestAnimationFrame(moveBox);
     } else if (shift === 470) {
-
-        var elapsed = timestamp - start;
-        var shift = Math.min(0.1 * elapsed, 0);
-
-        ctx.clearRect(0, 0, element.clientWidth, element.height);
-
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.rect(0, shift, 30, 30);
-        ctx.fill();
+        ctx.clearRect(0, 0, element.clientWidth, element.height)
     }
 };
 
