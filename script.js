@@ -1,28 +1,25 @@
-
 const element = document.getElementById('rect');
-const ctx = element.getContext('2d')
+const ctx = element.getContext('2d');
 let start;
+let position = {
+    y: 0
+}
 
-const moveBox = (timestamp) => {
-    if (start === undefined) {
-        start = timestamp
-    }
-
-    var elapsed = timestamp - start;
-    var shift = Math.min(0.1 * elapsed, 470)
+const speed = 5;
+let dir = 1;
+const moveBox = () => {
 
     ctx.clearRect(0, 0, element.clientWidth, element.height);
 
+    requestAnimationFrame(moveBox);
     ctx.fillStyle = 'red';
     ctx.beginPath();
-    ctx.rect(470 / 2, shift, 30, 30)
+    ctx.rect(470 / 2, (position.y += dir), 30, 30);
     ctx.fill();
 
-    if (shift < 470) {
-        requestAnimationFrame(moveBox);
-    } else if (shift === 470) {
-        ctx.clearRect(0, 0, element.clientWidth, element.height)
-    }
-};
+    if (position.y >= element.height - 30) {
+        dir = -1;
+    };
+}
 
 requestAnimationFrame(moveBox);
