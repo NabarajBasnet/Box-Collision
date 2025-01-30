@@ -15,7 +15,8 @@ const boxes = Array.from({ length: 10 }, () => {
         Math.random() * (canvas.width - 20),
         Math.random() * (canvas.height - 20),
         20,
-        20
+        20,
+        canvas
     );
 });
 

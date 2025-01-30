@@ -1,7 +1,7 @@
 const directions = [-1, 1];
 
 class Box {
-    constructor(x, y, w, h) {
+    constructor(x, y, w, h, canvas) {
         this.position = {
             x: x || 0,
             y: y || 0
@@ -13,6 +13,13 @@ class Box {
         };
 
         this.speed = Math.random() * (3 - 0.5) + 0.5;
+
+        this.velocity = {
+            x: directions[Math.floor(Math.random() * 2)] * this.speed,
+            y: directions[Math.floor(Math.random() * 2)] * this.speed
+        };
+
+        this.canvas = canvas;
     };
 
     draw(ctx) {
@@ -23,13 +30,23 @@ class Box {
     };
 
     move(ctx) {
-        this.position.x = this.position.x + directions[Math.floor(Math.random() * 2)] * this.speed;
-        this.position.y = this.position.y + directions[Math.floor(Math.random() * 2)] * this.speed;
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
     };
 
     update(ctx) {
         this.draw(ctx);
         this.move(ctx);
+        this.checkBorderCollision();
+    };
+
+    checkBorderCollision() {
+        if (this.position.x <= 0 || this.position.x >= this.canvas.width - this.size.width) {
+            this.velocity.x *= -1;
+        };
+        if (this.position.y <= 0 || this.position.y >= this.canvas.height - this.size.height) {
+            this.velocity.y *= -1;
+        };
     };
 };
 
